@@ -1,33 +1,69 @@
-HELP.md
+### Java ###
+*.class
+*.jar
+*.war
+*.ear
+*.log
+*.ctxt
+*.jmap
+*.hprof
+*.heapdump
+*.hs_err_pid*
+
+### Maven ###
 target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+### Spring Boot ###
+!**/src/main/**/application.properties
+!**/src/main/**/application.yml
+!**/src/test/**/application.properties
+!**/src/test/**/application.yml
+*.log
+*.pid
 
-### IntelliJ IDEA ###
-.idea
-*.iws
+### IDE ###
+.idea/
 *.iml
+*.iws
 *.ipr
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-### VS Code ###
+*.ids
+*.orig
+*.bak
+*.old
+*.swp
+*.rej
+*~ 
 .vscode/
+eclipse/
+
+### OS ###
+.DS_Store
+Thumbs.db
+
+### Backup & Log files ###
+*.bak
+*.log
+*.seq
+*.tmp
+*.~lock.*
+
+### Others ###
+*.pid
+*.log
+*.log.*.lck
+*.pyc
+*.cache/
+*.egg-info/
+dist/
+*.prof
+logs/
+modules/
