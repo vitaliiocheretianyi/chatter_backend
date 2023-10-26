@@ -1,4 +1,4 @@
-package com.vochere.chatter.chatter.src.models;
+package com.vochere.chatter.chatter.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
