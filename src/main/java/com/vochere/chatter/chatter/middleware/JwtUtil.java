@@ -10,10 +10,14 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 import java.util.function.Function;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @Component
 public class JwtUtil {
 
     private final String SECRET_KEY = "YOUR_SECRET_KEY";
+    private static final Logger logger = LoggerFactory.getLogger(JwtUtil.class);
 
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
@@ -37,9 +41,17 @@ public class JwtUtil {
     }
 
     public String generateToken(String username) {
-        return Jwts.builder().setSubject(username).setIssuedAt(new Date(System.currentTimeMillis()))
+        String token = Jwts.builder().setSubject(username)
+                .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10)) // 10 hours
                 .signWith(SignatureAlgorithm.HS256, SECRET_KEY).compact();
+
+        // Log the details:
+        logger.info("Generated JWT Token: {}", token);
+        logger.info("Expected Header Name: Authorization");
+        logger.info("Expected Token Prefix: Bearer ");
+
+        return token;
     }
 
     public Boolean validateToken(String token, UserDetails userDetails) {
